@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { StyleSheet, Image } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import HomeScreen from "./HomeScreen";
@@ -9,60 +10,80 @@ import MeScreen from "./MeScreen";
 import DiscoverScreen from "./DiscoverScreen";
 import AppDrawer from "./AppDrawer";
 import SettingsScreen from "./SettingsScreen";
-import AddScreen from "./AddScreen";
+
+import { BlurView } from "expo-blur";
+import React from "react";
+import CommuteScreen from "./CommuteScreen";
 
 const MainStacks = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const Empty = () => null;
-
 const MainTabs = ({ navigation }) => {
   const [unreadCount, setUnreadCount] = useState(3);
+  const [isPressed, setIsPressed] = React.useState(false);
+
   return (
     <AppDrawer navigation={navigation}>
-      <SafeAreaView style={{ height: "100%" }}>
+      <SafeAreaView style={{ flex: 1 }}>
         <Tab.Navigator
           screenOptions={{
             headerShown: false,
-            tabBarActiveTintColor: "#408086",
+            tabBarStyle: {
+              position: "absolute",
+              bottom: 12,
+              alignSelf: "center",
+              borderRadius: 20,
+              width: 362,
+              height: 78,
+              backgroundColor: "transparent",
+              marginHorizontal: 16,
+              padding: 4,
+            },
+            tabBarActiveTintColor: "#FFFFFF",
+            tabBarBackground: () => (
+              <BlurView
+                tint="dark"
+                intensity={80}
+                style={StyleSheet.absoluteFill}
+              />
+            ),
           }}
         >
           <Tab.Screen
-            name="Home"
+            name="Discover"
             component={HomeScreen}
             options={{
               tabBarIcon: ({ color, size }) => (
-                <Ionicons name="home" size={size} color={color} />
+                <Image
+                  source={
+                    require("@/assets/icomoon/discover.png") // New image for added state
+                  } // Default image
+                  style={{ width: 34, height: 34 }}
+                />
               ),
-              tabBarLabel: "Home",
+              // tabBarLabel: "Discover",
             }}
           />
 
           <Tab.Screen
-            name="Discover"
+            name="Search"
             component={DiscoverScreen}
             options={{
               tabBarIcon: ({ color, size }) => (
                 <Ionicons name="search" size={size} color={color} />
               ),
-              tabBarLabel: "Discover",
+              tabBarLabel: "Search",
             }}
           />
 
           <Tab.Screen
-            name="AddTab"
-            component={Empty} // this is a workaround to show a full screen when this tab is pressed
+            name="Add"
+            component={CommuteScreen}
             options={{
-              tabBarIcon: ({ color }) => (
-                <Ionicons name="add" size={36} color={color} />
+              tabBarIcon: ({ color, size }) => (
+                <Ionicons name="add" size={size} color={color} />
               ),
-              tabBarLabel: () => null,
-            }}
-            listeners={{
-              tabPress: (e) => {
-                e.preventDefault(); // stop default navigation
-                navigation.navigate("Add"); // manually navigate to the stack screen outside of the tab navigators
-              },
+              tabBarLabel: "Commute",
             }}
           />
 
@@ -73,7 +94,7 @@ const MainTabs = ({ navigation }) => {
               tabBarIcon: ({ color, size }) => (
                 <Ionicons name="chatbox" size={size} color={color} />
               ),
-              tabBarLabel: "Inbox",
+              tabBarLabel: "Playlist",
               tabBarBadge: unreadCount,
             }}
             listeners={{
@@ -90,7 +111,7 @@ const MainTabs = ({ navigation }) => {
               tabBarIcon: ({ color, size }) => (
                 <Ionicons name="person" size={size} color={color} />
               ),
-              tabBarLabel: "Me",
+              tabBarLabel: "Account",
             }}
           />
         </Tab.Navigator>
@@ -106,11 +127,6 @@ const MainScreens = () => {
         name="MainTabs"
         component={MainTabs}
         options={{ headerShown: false }}
-      />
-      <MainStacks.Screen
-        name="Add"
-        component={AddScreen}
-        options={{ animation: "fade_from_bottom" }}
       />
       <MainStacks.Screen
         name="Settings"
