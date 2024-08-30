@@ -138,8 +138,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#121212",
     display: "flex",
     flex: 1,
-    // alignItems: "flex-start",
-    // justifyContent: "start",
   },
 
   pagetitle: {

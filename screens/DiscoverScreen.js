@@ -25,7 +25,7 @@ const DiscoverScreen = () => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <ImageBackground
-        source={require("@/assets/Background img/bg1.png")}
+        source={require("@/assets/Background img/search-bg.png")}
         resizeMode="cover"
         style={styles.image}
       >

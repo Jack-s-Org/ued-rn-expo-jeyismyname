@@ -3,7 +3,7 @@ import { StyleSheet, Image } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import HomeScreen from "./HomeScreen";
-import NotificationsScreen from "./NotificationsScreen";
+import LibraryScreen from "./Library";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SafeAreaView } from "react-native-safe-area-context";
 import MeScreen from "./MeScreen";
@@ -89,12 +89,12 @@ const MainTabs = ({ navigation }) => {
 
           <Tab.Screen
             name="Inbox"
-            component={NotificationsScreen}
+            component={LibraryScreen}
             options={{
               tabBarIcon: ({ color, size }) => (
                 <Ionicons name="chatbox" size={size} color={color} />
               ),
-              tabBarLabel: "Playlist",
+              tabBarLabel: "Library",
               tabBarBadge: unreadCount,
             }}
             listeners={{

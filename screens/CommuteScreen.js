@@ -11,6 +11,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
 import React from "react";
 import CommuteFav from "@/screens/CommuteFav";
+import CommuteRecent from "./CommuteRecent";
 
 const CommuteScreen = () => {
   const [isAdded, setIsAdded] = React.useState(false);
@@ -23,7 +24,7 @@ const CommuteScreen = () => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <ImageBackground
-        source={require("@/assets/Background img/home-bg.png")}
+        source={require("@/assets/Background img/commute-bg.png")}
         resizeMode="cover"
         style={styles.image}
       >
@@ -36,6 +37,22 @@ const CommuteScreen = () => {
         <Text style={styles.subtitle}>Favourites</Text>
         <CommuteFav />
         <Text style={styles.subtitle}>Recent</Text>
+        <CommuteRecent
+          artistImage={require("@/assets/Button img/train-purple.png")}
+          songTitle="Eslite Spectrum Kuala Lumpur"
+          artistName="Starhill Gallery, 181, Jln Bukit Binta"
+        />
+        <CommuteRecent
+          artistImage={require("@/assets/Button img/train-purple.png")}
+          songTitle="Eslite Spectrum Kuala Lumpur"
+          artistName="Starhill Gallery, 181, Jln Bukit Binta"
+        />
+        <CommuteRecent
+          artistImage={require("@/assets/Button img/train-purple.png")}
+          songTitle="Eslite Spectrum Kuala Lumpur"
+          artistName="Starhill Gallery, 181, Jln Bukit Binta"
+        />
+        <View style={{ marginBottom: 90, backgroundColor: "yellow" }} />
       </ImageBackground>
     </ScrollView>
   );
@@ -73,6 +90,9 @@ const styles = StyleSheet.create({
     fontFamily: "Syne-Regular",
     color: "white",
     fontSize: 16,
+  },
+  image: {
+    width: 390,
   },
 });
 
