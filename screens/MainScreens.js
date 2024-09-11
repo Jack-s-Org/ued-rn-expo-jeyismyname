@@ -6,7 +6,7 @@ import HomeScreen from "./HomeScreen";
 import LibraryScreen from "./Library";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SafeAreaView } from "react-native-safe-area-context";
-import MeScreen from "./MeScreen";
+import Account from "./Account";
 import DiscoverScreen from "./DiscoverScreen";
 import AppDrawer from "./AppDrawer";
 import SettingsScreen from "./SettingsScreen";
@@ -14,51 +14,40 @@ import SettingsScreen from "./SettingsScreen";
 import { BlurView } from "expo-blur";
 import React from "react";
 import CommuteScreen from "./CommuteScreen";
+import CustomTabBar from "@/Components/CustomTabBar";
 
 const MainStacks = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const MainTabs = ({ navigation }) => {
   const [unreadCount, setUnreadCount] = useState(3);
-  const [isPressed, setIsPressed] = React.useState(false);
 
   return (
     <AppDrawer navigation={navigation}>
       <SafeAreaView style={{ flex: 1 }}>
         <Tab.Navigator
+          tabBar={(props) => <CustomTabBar {...props} />}
           screenOptions={{
             headerShown: false,
             tabBarStyle: {
-              position: "absolute",
-              bottom: 12,
-              alignSelf: "center",
-              borderRadius: 20,
-              width: 362,
-              height: 78,
-              backgroundColor: "transparent",
-              marginHorizontal: 16,
-              padding: 4,
+              backgroundColor: "#121212",
             },
             tabBarActiveTintColor: "#FFFFFF",
-            tabBarBackground: () => (
-              <BlurView
-                tint="dark"
-                intensity={80}
-                style={StyleSheet.absoluteFill}
-              />
-            ),
+            tabBarInactiveBackgroundColor: "#a0a0a0",
           }}
         >
           <Tab.Screen
             name="Discover"
             component={HomeScreen}
             options={{
-              tabBarIcon: ({ color, size }) => (
+              tabBarIcon: ({ color, size, focused }) => (
                 <Image
                   source={
-                    require("@/assets/icomoon/discover.png") // New image for added state
-                  } // Default image
-                  style={{ width: 34, height: 34 }}
+                    focused
+                      ? require("@/assets/icomoon/Discover-white.png")
+                      : require("@/assets/icomoon/Discover-gray.png")
+                  }
+                  style={{ width: 38, height: 38 }}
                 />
               ),
               // tabBarLabel: "Discover",
@@ -70,9 +59,13 @@ const MainTabs = ({ navigation }) => {
             component={DiscoverScreen}
             options={{
               tabBarIcon: ({ color, size }) => (
-                <Ionicons name="search" size={size} color={color} />
+                // <Ionicons name="search" size={size} color={color} />
+                <Image
+                  source={require("@/assets/icomoon/Search-white.png")}
+                  style={{ width: 38, height: 38 }}
+                />
               ),
-              tabBarLabel: "Search",
+              // tabBarLabel: "Search",
             }}
           />
 
@@ -81,9 +74,11 @@ const MainTabs = ({ navigation }) => {
             component={CommuteScreen}
             options={{
               tabBarIcon: ({ color, size }) => (
-                <Ionicons name="add" size={size} color={color} />
+                <Image
+                  source={require("@/assets/icomoon/Commute-white.png")}
+                  style={{ width: 38, height: 38 }}
+                />
               ),
-              tabBarLabel: "Commute",
             }}
           />
 
@@ -92,10 +87,13 @@ const MainTabs = ({ navigation }) => {
             component={LibraryScreen}
             options={{
               tabBarIcon: ({ color, size }) => (
-                <Ionicons name="chatbox" size={size} color={color} />
+                <Image
+                  source={require("@/assets/icomoon/Library-white.png")}
+                  style={{ width: 38, height: 38 }}
+                />
               ),
-              tabBarLabel: "Library",
-              tabBarBadge: unreadCount,
+              // tabBarLabel: "Library",
+              // tabBarBadge: unreadCount,
             }}
             listeners={{
               tabPress: () => {
@@ -106,12 +104,15 @@ const MainTabs = ({ navigation }) => {
 
           <Tab.Screen
             name="SettingsDrawer"
-            component={MeScreen}
+            component={Account}
             options={{
               tabBarIcon: ({ color, size }) => (
-                <Ionicons name="person" size={size} color={color} />
+                <Image
+                  source={require("@/assets/icomoon/Account-white.png")}
+                  style={{ width: 38, height: 38 }}
+                />
               ),
-              tabBarLabel: "Account",
+              // tabBarLabel: "Account",
             }}
           />
         </Tab.Navigator>

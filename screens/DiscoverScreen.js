@@ -7,14 +7,37 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+// import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";
-import React from "react";
+import { React, useEffect, useState } from "react";
+import { Audio } from "expo-av";
 
 const DiscoverScreen = () => {
-  const [isAdded, setIsAdded] = React.useState(false);
-  const [isPlayed, setIsPlayed] = React.useState(false);
-  const [text, onChangeText] = React.useState("What do you want to play?");
+  //audio playback
+  const [sound, setSound] = useState();
+  async function playSound() {
+    console.log("Loading Sound");
+    const { sound } = await Audio.Sound.createAsync(
+      require("@/assets/Audio files/Tip Toe - HYBS.mp3")
+    );
+    setSound(sound);
+
+    console.log("Playing Sound");
+    await sound.playAsync();
+  }
+
+  useEffect(() => {
+    return sound
+      ? () => {
+          console.log("Unloading Sound");
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
+
+  const [isAdded, setIsAdded] = useState(false);
+  const [isPlayed, setIsPlayed] = useState(false);
+  const [text, onChangeText] = useState("What do you want to play?");
   const handlePress = () => {
     setIsAdded((prev) => !prev);
   };
@@ -65,16 +88,13 @@ const DiscoverScreen = () => {
                     }
                   />
                 </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.addBUtton2}
-                  onPress={handlePress2}
-                >
+                <TouchableOpacity style={styles.addBUtton2} onPress={playSound}>
                   <Image
                     style={styles.buttonStyle2}
                     source={
                       isPlayed
-                        ? require("@/assets/Button img/play-button.png") // New image for added state
-                        : require("@/assets/Button img/pause-button.png") // Default image
+                        ? require("@/assets/Button img/pause-button.png") // New image for added state
+                        : require("@/assets/Button img/play-button.png") // Default image
                     }
                   />
                 </TouchableOpacity>

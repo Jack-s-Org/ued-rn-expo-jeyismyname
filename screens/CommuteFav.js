@@ -5,13 +5,19 @@ import {
   View,
   TouchableOpacity,
   Image,
+  Pressable,
+  Modal,
+  Alert,
+  TextInput,
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
+import SuggestRoute from "./SuggestRoutes";
 import React from "react";
 
 const CommuteScreen = () => {
+  const [number, onChangeNumber] = React.useState("");
   const [isAdded, setIsAdded] = React.useState(false);
-
+  const [modalVisible, setModalVisible] = React.useState(false);
   const handlePress = () => {
     setIsAdded((prev) => !prev);
   };
@@ -25,48 +31,63 @@ const CommuteScreen = () => {
         maxHeight: 173,
       }}
     >
-      <ImageBackground
-        style={styles.favLocation}
-        source={require("@/assets/Commute page/favourites-bg.png")}
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
       >
-        <View style={styles.box1}>
-          <Image
-            source={require("@/assets/Button img/favHome.png")}
-            style={{
-              width: 38,
-              height: 38,
-              marginRight: 8,
-              marginLeft: 16,
-              marginTop: 16,
-            }}
-          />
-          <View style={{ marginTop: 12 }}>
-            <Text style={styles.favTitle}>Home</Text>
-            <Text style={styles.favSubtitle}>48 min | Arrive at 12:35</Text>
-          </View>
-          <TouchableOpacity style={styles.addBUtton} onPress={handlePress}>
+        <SuggestRoute setModalVisible={setModalVisible} />
+      </Modal>
+
+      {/* Card UI */}
+      <Pressable onPress={() => setModalVisible(true)}>
+        <ImageBackground
+          style={styles.favLocation}
+          source={require("@/assets/Commute page/favourites-bg.png")}
+        >
+          <View style={styles.box1}>
             <Image
-              style={styles.buttonStyle}
-              source={
-                isAdded
-                  ? require("@/assets/Button img/star-inactive.png") // New image for added state
-                  : require("@/assets/Button img/star-active.png") // Default image
-              }
+              source={require("@/assets/Button img/favHome.png")}
+              style={{
+                width: 38,
+                height: 38,
+                marginRight: 8,
+                marginLeft: 16,
+                marginTop: 16,
+              }}
             />
-          </TouchableOpacity>
-        </View>
-        <View>
-          <Image
-            source={require("@/assets/Button img/commute-home.png")}
-            style={{
-              width: 196,
-              height: 60,
-              marginHorizontal: 48,
-              marginTop: 24,
-            }}
-          ></Image>
-        </View>
-      </ImageBackground>
+            <View style={{ marginTop: 12 }}>
+              <Text style={styles.favTitle}>Home</Text>
+              <Text style={styles.favSubtitle}>48 min | Arrive at 12:35</Text>
+            </View>
+            <TouchableOpacity style={styles.addBUtton} onPress={handlePress}>
+              <Image
+                style={styles.buttonStyle}
+                source={
+                  isAdded
+                    ? require("@/assets/Button img/star-inactive.png") // New image for added state
+                    : require("@/assets/Button img/star-active.png") // Default image
+                }
+              />
+            </TouchableOpacity>
+          </View>
+          <View>
+            <Image
+              source={require("@/assets/Button img/commute-home.png")}
+              style={{
+                width: 196,
+                height: 60,
+                marginHorizontal: 48,
+                marginTop: 24,
+              }}
+            ></Image>
+          </View>
+        </ImageBackground>
+      </Pressable>
       <ImageBackground
         style={styles.favLocation}
         source={require("@/assets/Commute page/favourites-bg2.png")}
@@ -156,6 +177,23 @@ const CommuteScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "center",
+  },
+  textStyle: {
+    color: "white",
+    margin: 12,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "#121212",
+    borderRadius: 20,
+
+    width: 393,
+    height: 472,
+  },
   box1: {
     alignItems: "flex-start",
     flexDirection: "row",
@@ -196,10 +234,24 @@ const styles = StyleSheet.create({
     borderColor: "white",
     borderRadius: 24,
     height: 40,
-    marginTop: 20,
-    marginHorizontal: 16,
+    width: 237,
+    marginTop: 32,
+    marginLeft: 16,
     borderWidth: 1,
-    padding: 24,
+    padding: 10,
+    fontFamily: "Syne-Regular",
+    color: "white",
+    fontSize: 16,
+  },
+  destination: {
+    borderColor: "white",
+    borderRadius: 24,
+    height: 40,
+    width: 237,
+    marginTop: 4,
+    marginLeft: 16,
+    borderWidth: 1,
+    padding: 10,
     fontFamily: "Syne-Regular",
     color: "white",
     fontSize: 16,
@@ -214,6 +266,12 @@ const styles = StyleSheet.create({
     height: 26,
     marginTop: 26,
     marginLeft: 16,
+  },
+  buttonStyle2: {
+    width: 28,
+    height: 28,
+    marginTop: 32,
+    marginLeft: 18,
   },
 });
 

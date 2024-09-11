@@ -1,5 +1,5 @@
 import { StyleSheet, Text, ImageBackground, View, Image } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+// import { SafeAreaView } from "react-native-safe-area-context";
 
 const Libraryplaylists = (props) => {
   return (
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     height: 205,
     alignItems: "center",
     marginLeft: 20,
-    marginTop: 36,
+    marginTop: 24,
   },
   pictureFrame: {
     width: 144,

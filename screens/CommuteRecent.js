@@ -33,9 +33,7 @@ const CommuteRecent = (props) => {
         <Image
           style={styles.buttonStyle}
           source={
-            isAdded
-              ? require("@/assets/Button img/done-add-button.png") // New image for added state
-              : require("@/assets/Button img/add-button.png") // Default image
+            require("@/assets/Button img/more.png") // New image for added state
           }
         />
       </TouchableOpacity>
@@ -45,9 +43,10 @@ const CommuteRecent = (props) => {
 
 const styles = StyleSheet.create({
   parentFlexBox: {
-    // width: 200,
+    width: 200,
     alignItems: "center",
     flexDirection: "row",
+    marginLeft: 16,
   },
   songTitle: {
     width: 195,
