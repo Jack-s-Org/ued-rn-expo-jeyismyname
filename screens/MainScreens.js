@@ -1,21 +1,22 @@
 import { useState } from "react";
-import { StyleSheet, Image } from "react-native";
+import { StyleSheet, Image, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import HomeScreen from "./HomeScreen";
 import LibraryScreen from "./Library";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Account from "./Account";
 import DiscoverScreen from "./DiscoverScreen";
-import AppDrawer from "./AppDrawer";
+// import AppDrawer from "./AppDrawer";
 import SettingsScreen from "./SettingsScreen";
-import { useNavigation } from "@react-navigation/native";
-import { BlurView } from "expo-blur";
+// import { useNavigation } from "@react-navigation/native";
+// import { BlurView } from "expo-blur";
 import React from "react";
 import CommuteScreen from "./CommuteScreen";
 import CustomTabBar from "@/Components/CustomTabBar";
 import PlaylistPage from "./PlaylistPage";
+import Genre from "./Genre";
+import MusicPlayer from "@/Components/MusicPlayer";
 
 const MainStacks = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -133,24 +134,51 @@ const MainTabs = ({ navigation }) => {
 
 const MainScreens = () => {
   return (
-    <MainStacks.Navigator>
-      <MainStacks.Screen
-        name="MainTabs"
-        component={MainTabs}
-        options={{ headerShown: false }}
-      />
-      <MainStacks.Screen
-        name="Settings"
-        component={SettingsScreen}
-        options={{ animation: "fade_from_bottom" }}
-      />
-      <MainStacks.Screen
-        name="Playlists"
-        component={PlaylistPage}
-        options={{ animation: "fade_from_bottom", headerShown: false }}
-      />
-    </MainStacks.Navigator>
+    <View style={{ flex: 1 }}>
+      {/* Main content with stack and tabs */}
+      <MainStacks.Navigator>
+        <MainStacks.Screen
+          name="MainTabs"
+          component={MainTabs}
+          options={{ headerShown: false }}
+        />
+        <MainStacks.Screen
+          name="Settings"
+          component={SettingsScreen}
+          options={{ animation: "fade_from_bottom" }}
+        />
+        <MainStacks.Screen
+          name="Playlists"
+          component={PlaylistPage}
+          options={{ animation: "fade_from_bottom", headerShown: false }}
+        />
+        <MainStacks.Screen
+          name="Genre"
+          component={Genre}
+          options={{ animation: "fade_from_bottom", headerShown: false }}
+        />
+      </MainStacks.Navigator>
+
+      {/* Floating Music Player*/}
+      <View style={styles.musicPlayerWrapper}>
+        <MusicPlayer />
+      </View>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    position: "relative",
+  },
+  musicPlayerWrapper: {
+    position: "absolute",
+    bottom: 100,
+    left: 0,
+    right: 0,
+    zIndex: 100, // Above other components
+  },
+});
 
 export default MainScreens;

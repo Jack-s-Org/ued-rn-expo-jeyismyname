@@ -30,70 +30,70 @@ const Libraryplaylists = (props) => {
       <View style={styles.container}>
         <View style={styles.artistContainer}>
           <Image
-            source={require("@/assets/Library page/rex orange county.png")}
+            source={require("@/assets/Library page/BillieEillish.png")}
             style={styles.artistPic}
           />
-          <Text style={styles.artistsName}>Rex Orange County</Text>
+          <Text style={styles.artistsName}>Billie Eillish</Text>
         </View>
         <View style={styles.artistContainer}>
           <Image
-            source={require("@/assets/Library page/Moses Summary.png")}
+            source={require("@/assets/Library page/Stray Kids.png")}
             style={styles.artistPic}
           ></Image>
-          <Text style={styles.artistsName}>Moses Summary</Text>
+          <Text style={styles.artistsName}>Stray Kids</Text>
         </View>
         <View style={styles.artistContainer}>
           <Image
-            source={require("@/assets/Library page/Charli XCX.png")}
+            source={require("@/assets/Library page/Fuji Kaze.png")}
             style={styles.artistPic}
           ></Image>
-          <Text style={styles.artistsName}>Charli XCX</Text>
+          <Text style={styles.artistsName}>Fuji Kaze</Text>
         </View>
       </View>
       <View style={styles.container}>
         <View style={styles.artistContainer}>
           <Image
-            source={require("@/assets/Library page/rex orange county.png")}
+            source={require("@/assets/Library page/MAMSC.png")}
             style={styles.artistPic}
           />
-          <Text style={styles.artistsName}>Rex Orange County</Text>
+          <Text style={styles.artistsName}>Me and My Sandcastle</Text>
         </View>
         <View style={styles.artistContainer}>
           <Image
-            source={require("@/assets/Library page/Moses Summary.png")}
+            source={require("@/assets/Library page/Doja Cat.png")}
             style={styles.artistPic}
           ></Image>
-          <Text style={styles.artistsName}>Moses Summary</Text>
+          <Text style={styles.artistsName}>Doja Cat</Text>
         </View>
         <View style={styles.artistContainer}>
           <Image
-            source={require("@/assets/Library page/Charli XCX.png")}
+            source={require("@/assets/Library page/Adele 1.png")}
             style={styles.artistPic}
           ></Image>
-          <Text style={styles.artistsName}>Charli XCX</Text>
+          <Text style={styles.artistsName}>Adele</Text>
         </View>
       </View>
       <View style={styles.container}>
         <View style={styles.artistContainer}>
           <Image
-            source={require("@/assets/Library page/rex orange county.png")}
+            source={require("@/assets/Library page/Laufey.png")}
             style={styles.artistPic}
           />
-          <Text style={styles.artistsName}>Rex Orange County</Text>
+          <Text style={styles.artistsName}>Laufey</Text>
         </View>
         <View style={styles.artistContainer}>
           <Image
-            source={require("@/assets/Library page/Moses Summary.png")}
+            source={require("@/assets/Library page/Conan Gray.png")}
             style={styles.artistPic}
           ></Image>
-          <Text style={styles.artistsName}>Moses Summary</Text>
+          <Text style={styles.artistsName}>Conan Gray</Text>
         </View>
         <View style={styles.artistContainer}>
           <Image
-            source={require("@/assets/Library page/Charli XCX.png")}
+            source={require("@/assets/Library page/Sabrina.png")}
             style={styles.artistPic}
           ></Image>
-          <Text style={styles.artistsName}>Charli XCX</Text>
+          <Text style={styles.artistsName}>Sabrina Carpenter</Text>
         </View>
       </View>
     </View>

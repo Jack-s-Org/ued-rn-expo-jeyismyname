@@ -6,6 +6,7 @@ import {
   ImageBackground,
   Pressable,
   ScrollView,
+  SafeAreaView,
 } from "react-native";
 
 import SongLists from "@/screens/SongList";
@@ -36,15 +37,15 @@ const HomeScreen = ({ navigation }) => {
           />
           <Image
             style={styles.songCards}
-            source={require("@/assets/home page/song-card.png")}
+            source={require("@/assets/home page/song-card-stray kids.png")}
           />
           <Image
             style={styles.songCards}
-            source={require("@/assets/home page/song-card.png")}
+            source={require("@/assets/home page/song-card-sza.png")}
           />
           <Image
             style={styles.songCards}
-            source={require("@/assets/home page/song-card.png")}
+            source={require("@/assets/home page/song-card-louie.png")}
           />
         </ScrollView>
 
@@ -66,15 +67,15 @@ const HomeScreen = ({ navigation }) => {
             />
           </Pressable>
           <Image
-            source={require("@/assets/home page/playlist.png")}
+            source={require("@/assets/home page/playlist 2.png")}
             style={styles.playlistDisk}
           />
           <Image
-            source={require("@/assets/home page/playlist.png")}
+            source={require("@/assets/home page/playlist 3.png")}
             style={styles.playlistDisk}
           />
           <Image
-            source={require("@/assets/home page/playlist.png")}
+            source={require("@/assets/home page/playlist 4.png")}
             style={styles.playlistDisk}
           />
         </ScrollView>
@@ -85,7 +86,7 @@ const HomeScreen = ({ navigation }) => {
           style={{ margin: 16, maxHeight: 231 }}
         >
           <Image
-            source={require("@/assets/home page/daily-remix.png")}
+            source={require("@/assets/home page/daily-remix 2.png")}
             style={styles.playlistRemix}
           />
           <Image
@@ -93,11 +94,11 @@ const HomeScreen = ({ navigation }) => {
             style={styles.playlistRemix}
           />
           <Image
-            source={require("@/assets/home page/daily-remix.png")}
+            source={require("@/assets/home page/daily-remix 3.png")}
             style={styles.playlistRemix}
           />
           <Image
-            source={require("@/assets/home page/daily-remix.png")}
+            source={require("@/assets/home page/daily-remix 4.png")}
             style={styles.playlistRemix}
           />
         </ScrollView>
@@ -128,15 +129,15 @@ const HomeScreen = ({ navigation }) => {
             style={styles.moodDisks}
           />
           <Image
-            source={require("@/assets/home page/mood-disks.png")}
+            source={require("@/assets/home page/mood-disks 2.png")}
             style={styles.moodDisks}
           />
           <Image
-            source={require("@/assets/home page/mood-disks.png")}
+            source={require("@/assets/home page/mood-disks 3.png")}
             style={styles.moodDisks}
           />
           <Image
-            source={require("@/assets/home page/mood-disks.png")}
+            source={require("@/assets/home page/mood-disks 4.png")}
             style={styles.moodDisks}
           />
         </ScrollView>
@@ -148,8 +149,8 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#121212",
-    display: "flex",
-    flex: 1,
+    // display: "flex",
+    // flex: 1,
   },
 
   pagetitle: {
@@ -194,8 +195,7 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: 390,
-    height: "100%",
+    width: 393,
   },
 });
 

@@ -42,8 +42,8 @@ export default function Onboarding_anim2() {
 
 const styles = StyleSheet.create({
   container: {
-    height: 378,
-    width: 344,
+    height: 400,
+    width: 393,
     alignSelf: "center",
   },
 });

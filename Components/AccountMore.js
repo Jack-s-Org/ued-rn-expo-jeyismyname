@@ -45,7 +45,7 @@ const AccountMore = (props) => {
             ]}
           >
             <Image
-              source={require("@/assets/Account page/history-light.png")}
+              source={require("@/assets/Account page/user-plus.png")}
               style={[{ width: 28, height: 28 }]}
             />
             <Text style={styles.body2}>Find Friends</Text>
@@ -62,7 +62,7 @@ const AccountMore = (props) => {
               ]}
             >
               <Image
-                source={require("@/assets/Account page/history-light.png")}
+                source={require("@/assets/Account page/share.png")}
                 style={[{ width: 28, height: 28 }]}
               />
               <Text style={styles.body2}>Share</Text>
@@ -79,7 +79,7 @@ const AccountMore = (props) => {
             ]}
           >
             <Image
-              source={require("@/assets/Account page/history-light.png")}
+              source={require("@/assets/Account page/brush.png")}
               style={[{ width: 28, height: 28 }]}
             />
             <Text style={styles.body2}>Edit Profile</Text>
@@ -103,11 +103,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   modalView: {
-    margin: 20,
+    // margin: 20,
     backgroundColor: "#121212",
     borderRadius: 20,
     width: 393,
-    height: 216,
+    height: 210,
   },
   overlay: {
     flex: 1,

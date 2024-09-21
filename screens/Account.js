@@ -11,11 +11,23 @@ import {
   Modal,
 } from "react-native";
 import React from "react";
+import * as WebBrowser from "expo-web-browser";
+import MusicPlayer from "@/Components/MusicPlayer";
+
 const Account = () => {
   const [isAdded, setIsAdded] = React.useState(false);
   const [modalVisible, setModalVisible] = React.useState(false);
   const handlePress = () => {
     setIsAdded((prev) => !prev);
+  };
+
+  //Open web browser
+  const [result, setResult] = React.useState(null);
+  const _handlePressButtonAsync = async () => {
+    let result = await WebBrowser.openBrowserAsync(
+      "https://www.joox.com/en/user_agreement.html"
+    );
+    setResult(result);
   };
 
   return (
@@ -54,7 +66,8 @@ const Account = () => {
       </View>
 
       {/* Pressable content */}
-      <View
+      <Pressable
+        onPress={_handlePressButtonAsync}
         style={[
           {
             flexDirection: "row",
@@ -69,7 +82,7 @@ const Account = () => {
           style={[{ width: 28, height: 28 }]}
         />
         <Text style={styles.body2}>Settings and Privacy</Text>
-      </View>
+      </Pressable>
 
       <View
         style={[

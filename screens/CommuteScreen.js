@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginHorizontal: 16,
     borderWidth: 1,
-    padding: 24,
+    paddingLeft: 24,
     fontFamily: "Syne-Regular",
     color: "white",
     fontSize: 16,

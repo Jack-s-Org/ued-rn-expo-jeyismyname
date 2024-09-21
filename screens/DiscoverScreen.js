@@ -7,13 +7,16 @@ import {
   TouchableOpacity,
   Image,
   ScrollView,
+  Pressable,
 } from "react-native";
 // import { SafeAreaView } from "react-native-safe-area-context";
+
+import Genre from "@/screens/Genre";
 
 import { React, useEffect, useState } from "react";
 import { Audio } from "expo-av";
 
-const DiscoverScreen = () => {
+const DiscoverScreen = ({ navigation }) => {
   //audio playback
   const [sound, setSound] = useState();
   async function playSound() {
@@ -123,26 +126,18 @@ const DiscoverScreen = () => {
 
         <Text style={styles.subtitle}>Browse all genres</Text>
         <View style={styles.genreContainer}>
-          <View style={styles.box}>
-            <Image
-              style={styles.genreBox}
-              source={require("@/assets/Discover page/New releases.png")}
-            ></Image>
-          </View>
-          <View style={styles.box}>
-            <Image
-              style={styles.genreBox}
-              source={require("@/assets/Discover page/Made for you.png")}
-            ></Image>
-          </View>
-        </View>
-        <View style={styles.genreContainer}>
-          <View style={styles.box}>
-            <Image
-              style={styles.genreBox}
-              source={require("@/assets/Discover page/New releases.png")}
-            ></Image>
-          </View>
+          <Pressable
+            onPress={() => {
+              navigation.push("Genre", { screen: "DiscoverScreen" });
+            }}
+          >
+            <View style={styles.box}>
+              <Image
+                style={styles.genreBox}
+                source={require("@/assets/Discover page/New releases.png")}
+              ></Image>
+            </View>
+          </Pressable>
           <View style={styles.box}>
             <Image
               style={styles.genreBox}
@@ -154,13 +149,27 @@ const DiscoverScreen = () => {
           <View style={styles.box}>
             <Image
               style={styles.genreBox}
-              source={require("@/assets/Discover page/New releases.png")}
+              source={require("@/assets/Discover page/Hiphop.png")}
+            ></Image>
+          </View>
+          <View style={styles.box}>
+            <Image
+              style={styles.genreBox}
+              source={require("@/assets/Discover page/Kpop.png")}
+            ></Image>
+          </View>
+        </View>
+        <View style={styles.genreContainer}>
+          <View style={styles.box}>
+            <Image
+              style={styles.genreBox}
+              source={require("@/assets/Discover page/Mandopop.png")}
             ></Image>
           </View>
           <View style={[styles.box, { marginBottom: 90 }]}>
             <Image
               style={styles.genreBox}
-              source={require("@/assets/Discover page/Made for you.png")}
+              source={require("@/assets/Discover page/Rock.png")}
             ></Image>
           </View>
         </View>
@@ -190,6 +199,7 @@ const styles = StyleSheet.create({
 
   image: {
     width: 390,
+    // height: 844,
   },
 
   input: {
@@ -199,7 +209,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginHorizontal: 16,
     borderWidth: 1,
-    padding: 24,
+    paddingLeft: 24,
     fontFamily: "Syne-Regular",
     color: "white",
     fontSize: 16,
@@ -271,9 +281,10 @@ const styles = StyleSheet.create({
   genreContainer: {
     flexDirection: "row",
   },
-  // container: {
-  //   resizeMode: "cover",
-  // },
+  container: {
+    backgroundColor: "#121212",
+    width: "100%",
+  },
 });
 
 export default DiscoverScreen;

@@ -4,7 +4,7 @@ import { BlurView } from "expo-blur"; // Import BlurView
 function CustomTabBar({ state, descriptors, navigation }) {
   return (
     // Wrapping the whole tab bar in BlurView
-    <BlurView intensity={50} tint="dark" style={styles.blurContainer}>
+    <BlurView intensity={100} tint="dark" style={styles.blurContainer}>
       <View style={styles.tabBar}>
         {/* Loop through each Tab.Screen in MainScreen.js */}
         {state.routes.map((route, index) => {
