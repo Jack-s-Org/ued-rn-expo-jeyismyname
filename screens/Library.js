@@ -5,13 +5,12 @@ import {
   ImageBackground,
   View,
   Dimensions,
+  ScrollView,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { TabView, SceneMap } from "react-native-tab-view";
 import Libraryplaylists from "./Libraryplaylists";
 import LibraryArtists from "./LibraryArtists";
 import LibraryAlbums from "./LibraryAlbums";
-import { ScrollView } from "react-native-gesture-handler";
 
 const { width } = Dimensions.get("window");
 
@@ -73,9 +72,7 @@ const ArtistsRoute = () => (
 const AlbumsRoute = () => (
   <ScrollView>
     <View style={styles.container}>
-      <Text style={styles.emptyText}>
-        <LibraryAlbums />
-      </Text>
+      <LibraryAlbums />
     </View>
   </ScrollView>
 );
@@ -106,6 +103,7 @@ const LibraryScreen = () => {
         renderScene={renderScene}
         onIndexChange={setIndex}
         initialLayout={{ width }}
+        swipeEnabled={true}
         renderTabBar={(props) => (
           <View style={styles.libraryBar}>
             {props.navigationState.routes.map((route, i) => (
@@ -140,20 +138,13 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     flex: 1,
-    // justifyContent: "center",
-    // alignItems: "center",
-  },
-  emptyText: {
-    color: "#fff",
-    fontSize: 20,
-    fontFamily: "Syne-Regular",
   },
   pagetitle: {
     color: "white",
     fontSize: 48,
     fontFamily: "Syne-Bold",
     marginLeft: 16,
-    marginTop: 16,
+    marginTop: 57,
   },
   libraryBar: {
     flexDirection: "row",

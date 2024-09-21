@@ -6,9 +6,10 @@ import {
   View,
   TouchableOpacity,
   Image,
+  ScrollView,
 } from "react-native";
 // import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView } from "react-native-gesture-handler";
+
 import { React, useEffect, useState } from "react";
 import { Audio } from "expo-av";
 
@@ -26,11 +27,18 @@ const DiscoverScreen = () => {
     await sound.playAsync();
   }
 
+  async function pauseSound() {
+    console.log("Pausing Sound");
+    if (sound) {
+      await sound.pauseAsync();
+    }
+  }
+
   useEffect(() => {
     return sound
       ? () => {
-          console.log("Unloading Sound");
-          sound.unloadAsync();
+          console.log("wait Sound");
+          sound.pauseAsync();
         }
       : undefined;
   }, [sound]);
@@ -41,7 +49,14 @@ const DiscoverScreen = () => {
   const handlePress = () => {
     setIsAdded((prev) => !prev);
   };
-  const handlePress2 = () => {
+
+  //toggle pause play button with audio
+  const handlePress2 = async () => {
+    if (isPlayed) {
+      await pauseSound();
+    } else {
+      await playSound();
+    }
     setIsPlayed((prev) => !prev);
   };
 
@@ -88,7 +103,10 @@ const DiscoverScreen = () => {
                     }
                   />
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.addBUtton2} onPress={playSound}>
+                <TouchableOpacity
+                  style={styles.addBUtton2}
+                  onPress={handlePress2}
+                >
                   <Image
                     style={styles.buttonStyle2}
                     source={
@@ -167,7 +185,7 @@ const styles = StyleSheet.create({
     fontSize: 48,
     fontFamily: "Syne-Bold",
     marginLeft: 16,
-    marginTop: 16,
+    marginTop: 57,
   },
 
   image: {
@@ -254,10 +272,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   // container: {
-  //   display: "flex",
-  //   flex: 1,
-  //   alignItems: "center",
-  //   justifyContent: "center",
+  //   resizeMode: "cover",
   // },
 });
 

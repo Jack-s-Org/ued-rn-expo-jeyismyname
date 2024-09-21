@@ -1,10 +1,16 @@
-import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import Ionicons from "@expo/vector-icons/Ionicons";
-import { ScrollView } from "react-native-gesture-handler";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ImageBackground,
+  Pressable,
+  ScrollView,
+} from "react-native";
+
 import SongLists from "@/screens/SongList";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <ImageBackground
@@ -49,10 +55,16 @@ const HomeScreen = () => {
           showsHorizontalScrollIndicator={false}
           style={{ margin: 16, maxHeight: 259 }}
         >
-          <Image
-            source={require("@/assets/home page/playlist.png")}
-            style={styles.playlistDisk}
-          />
+          <Pressable
+            onPress={() => {
+              navigation.push("Playlists", { screen: "HomeScreen" });
+            }}
+          >
+            <Image
+              source={require("@/assets/home page/playlist.png")}
+              style={styles.playlistDisk}
+            />
+          </Pressable>
           <Image
             source={require("@/assets/home page/playlist.png")}
             style={styles.playlistDisk}
@@ -145,7 +157,7 @@ const styles = StyleSheet.create({
     fontSize: 48,
     fontFamily: "Syne-Bold",
     marginLeft: 16,
-    marginTop: 16,
+    marginTop: 57,
   },
 
   subtitle: {

@@ -9,8 +9,9 @@ import {
   Modal,
   Alert,
   TextInput,
+  ScrollView,
 } from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+
 import SuggestRoute from "./SuggestRoutes";
 import React from "react";
 

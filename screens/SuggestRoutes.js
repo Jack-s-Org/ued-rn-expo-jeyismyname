@@ -8,8 +8,8 @@ import {
   ImageBackground,
 } from "react-native";
 import React from "react";
-import CommuteRecent from "./CommuteRecent";
-
+import LocationDetect from "@/Components/LocationDetect";
+import { Colors } from "react-native/Libraries/NewAppScreen";
 const SuggestRoute = (props) => {
   const [number, onChangeNumber] = React.useState("");
 
@@ -34,13 +34,9 @@ const SuggestRoute = (props) => {
             source={require("@/assets/Button img/currentloc.png")}
             style={styles.buttonStyle2}
           />
-          <TextInput
-            style={styles.input}
-            onChangeText={onChangeNumber}
-            value={Text}
-            placeholder="Your Location"
-            placeholderTextColor="white"
-          />
+          <View>
+            <LocationDetect />
+          </View>
         </View>
         <View
           style={[

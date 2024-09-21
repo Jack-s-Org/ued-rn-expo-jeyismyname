@@ -1,13 +1,40 @@
-import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
-import { Directions } from "react-native-gesture-handler";
-import { SafeAreaView } from "react-native-safe-area-context";
-
+import AccountMore from "@/Components/AccountMore";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ImageBackground,
+  Alert,
+  Share,
+  Pressable,
+  Modal,
+} from "react-native";
+import React from "react";
 const Account = () => {
+  const [isAdded, setIsAdded] = React.useState(false);
+  const [modalVisible, setModalVisible] = React.useState(false);
+  const handlePress = () => {
+    setIsAdded((prev) => !prev);
+  };
+
   return (
     <ImageBackground
       source={require("@/assets/Background img/bg1.png")}
       style={styles.image}
     >
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+        }}
+      >
+        {modalVisible && <AccountMore onClose={() => setModalVisible(false)} />}
+      </Modal>
+
       <Text style={styles.pagetitle}>Account</Text>
       <View style={styles.container}>
         <Image
@@ -18,10 +45,12 @@ const Account = () => {
           <Text style={styles.subtitle}>John Doe</Text>
           <Text style={styles.body1}>0 followers | 23 following</Text>
         </View>
-        <Image
-          source={require("@/assets/Button img/more.png")}
-          style={styles.more}
-        />
+        <Pressable onPress={() => setModalVisible(true)}>
+          <Image
+            source={require("@/assets/Button img/more.png")}
+            style={styles.more}
+          />
+        </Pressable>
       </View>
 
       {/* Pressable content */}
@@ -58,6 +87,7 @@ const Account = () => {
         />
         <Text style={styles.body2}>Listening History</Text>
       </View>
+
       <View
         style={[
           {
@@ -73,6 +103,23 @@ const Account = () => {
           style={[{ width: 28, height: 28 }]}
         />
         <Text style={styles.body2}>Add Account</Text>
+      </View>
+
+      <View
+        style={[
+          {
+            flexDirection: "row",
+            alignItems: "center",
+            marginLeft: 32,
+            marginTop: 24,
+          },
+        ]}
+      >
+        <Image
+          source={require("@/assets/Account page/smart-watch.png")}
+          style={[{ width: 28, height: 28 }]}
+        />
+        <Text style={styles.body2}>Smart Watch</Text>
       </View>
       <View style={[{ alignItems: "center" }]}>
         <View style={styles.logOut}>
@@ -119,15 +166,16 @@ const styles = StyleSheet.create({
     marginLeft: 16,
   },
   image: {
-    width: 390,
+    width: 393,
     height: 844,
+    resizeMode: "cover",
   },
   pagetitle: {
     color: "white",
     fontSize: 48,
     fontFamily: "Syne-Bold",
     marginLeft: 16,
-    marginTop: 16,
+    marginTop: 57,
   },
   subtitle: {
     color: "white",

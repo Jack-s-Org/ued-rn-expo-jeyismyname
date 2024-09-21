@@ -6,9 +6,10 @@ import {
   View,
   TouchableOpacity,
   Image,
+  ScrollView,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { ScrollView } from "react-native-gesture-handler";
+
 import React from "react";
 import CommuteFav from "@/screens/CommuteFav";
 import CommuteRecent from "./CommuteRecent";
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     fontSize: 48,
     fontFamily: "Syne-Bold",
     marginLeft: 16,
-    marginTop: 16,
+    marginTop: 57,
   },
   subtitle: {
     color: "white",
