@@ -39,7 +39,7 @@ const Genre = ({ navigation }) => {
       >
         <View style={styles.albumContainer}>
           <Image
-            source={require("@/assets/Library page/inside.png")}
+            source={require("@/assets/Discover page/youngman.png")}
             style={styles.albumCover}
           />
           <Text style={styles.albumTitle}>Young Man</Text>
@@ -47,7 +47,7 @@ const Genre = ({ navigation }) => {
         </View>
         <View style={styles.albumContainer}>
           <Image
-            source={require("@/assets/Library page/inside.png")}
+            source={require("@/assets/Discover page/lunch.png")}
             style={styles.albumCover}
           />
           <Text style={styles.albumTitle}>LUNCH</Text>
@@ -55,7 +55,7 @@ const Genre = ({ navigation }) => {
         </View>
         <View style={styles.albumContainer}>
           <Image
-            source={require("@/assets/Library page/inside.png")}
+            source={require("@/assets/Discover page/leehi.png")}
             style={styles.albumCover}
           />
           <Text style={styles.albumTitle}>What is Love?</Text>
@@ -63,7 +63,7 @@ const Genre = ({ navigation }) => {
         </View>
         <View style={styles.albumContainer}>
           <Image
-            source={require("@/assets/Library page/inside.png")}
+            source={require("@/assets/Discover page/flower.png")}
             style={styles.albumCover}
           />
           <Text style={styles.albumTitle}>Flower Garden</Text>
@@ -80,7 +80,7 @@ const Genre = ({ navigation }) => {
       >
         <View style={styles.albumContainer}>
           <Image
-            source={require("@/assets/Library page/inside.png")}
+            source={require("@/assets/Discover page/dream.png")}
             style={styles.albumCover}
           />
           <Text style={styles.albumTitle}>Dream</Text>
@@ -88,7 +88,7 @@ const Genre = ({ navigation }) => {
         </View>
         <View style={styles.albumContainer}>
           <Image
-            source={require("@/assets/Library page/inside.png")}
+            source={require("@/assets/Discover page/smile.png")}
             style={styles.albumCover}
           />
           <Text style={styles.albumTitle}>Die with a Smile</Text>
@@ -96,7 +96,7 @@ const Genre = ({ navigation }) => {
         </View>
         <View style={styles.albumContainer}>
           <Image
-            source={require("@/assets/Library page/inside.png")}
+            source={require("@/assets/Discover page/woman.png")}
             style={styles.albumCover}
           />
           <Text style={styles.albumTitle}>New Woman</Text>
@@ -104,7 +104,7 @@ const Genre = ({ navigation }) => {
         </View>
         <View style={styles.albumContainer}>
           <Image
-            source={require("@/assets/Library page/inside.png")}
+            source={require("@/assets/Discover page/smith.png")}
             style={styles.albumCover}
           />
           <Text style={styles.albumTitle}>Love Goes</Text>
@@ -122,7 +122,7 @@ const Genre = ({ navigation }) => {
       >
         <View style={styles.albumContainer}>
           <Image
-            source={require("@/assets/Library page/inside.png")}
+            source={require("@/assets/Discover page/firdhaus.png")}
             style={styles.albumCover}
           />
           <Text style={styles.albumTitle}>能遇见，就很...</Text>
@@ -130,7 +130,7 @@ const Genre = ({ navigation }) => {
         </View>
         <View style={styles.albumContainer}>
           <Image
-            source={require("@/assets/Library page/inside.png")}
+            source={require("@/assets/Discover page/falling.png")}
             style={styles.albumCover}
           />
           <Text style={styles.albumTitle}>Falling For You</Text>
@@ -138,7 +138,7 @@ const Genre = ({ navigation }) => {
         </View>
         <View style={styles.albumContainer}>
           <Image
-            source={require("@/assets/Library page/inside.png")}
+            source={require("@/assets/Discover page/please.png")}
             style={styles.albumCover}
           />
           <Text style={styles.albumTitle}>Please Please..</Text>
@@ -146,7 +146,7 @@ const Genre = ({ navigation }) => {
         </View>
         <View style={styles.albumContainer}>
           <Image
-            source={require("@/assets/Library page/inside.png")}
+            source={require("@/assets/Discover page/bikelane.png")}
             style={styles.albumCover}
           />
           <Text style={styles.albumTitle}>Bike Lane</Text>

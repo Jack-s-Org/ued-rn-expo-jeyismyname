@@ -44,7 +44,7 @@ const PlaylistsRoute = () => (
         playlistSub="Playlist - John Doe"
       />
     </View>
-    <View style={[styles.container, { paddingBottom: 100 }]}>
+    <View style={[styles.container, { paddingBottom: 190 }]}>
       <Libraryplaylists
         playlistFrame={require("@/assets/Button img/playlist-bg.png")}
         pictureFrame={require("@/assets/Library page/Last summer.png")}

@@ -21,7 +21,6 @@ const HomeScreen = ({ navigation }) => {
       >
         <Text style={styles.pagetitle}>Discover</Text>
         <Text style={styles.subtitle}>Recently played</Text>
-        {/* <Ionicons name="logo-octocat" size={24} color="black" /> */}
 
         <ScrollView
           horizontal
@@ -122,7 +121,7 @@ const HomeScreen = ({ navigation }) => {
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
-          style={{ margin: 16, maxHeight: 260, marginBottom: 90 }}
+          style={{ margin: 16, maxHeight: 260, marginBottom: 180 }}
         >
           <Image
             source={require("@/assets/home page/mood-disks.png")}

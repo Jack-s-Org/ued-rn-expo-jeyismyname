@@ -3,7 +3,7 @@ import { StyleSheet, Text, ImageBackground, View, Image } from "react-native";
 
 const Libraryplaylists = (props) => {
   return (
-    <View style={[{ paddingBottom: 100 }]}>
+    <View style={[{ paddingBottom: 190 }]}>
       <View style={styles.container}>
         <View style={styles.artistContainer}>
           <Image

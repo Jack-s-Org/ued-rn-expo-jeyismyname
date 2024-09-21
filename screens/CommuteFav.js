@@ -12,7 +12,7 @@ import {
   ScrollView,
 } from "react-native";
 
-import SuggestRoute from "./SuggestRoutes";
+import SuggestRoutes from "./SuggestRoutes";
 import React from "react";
 
 const CommuteScreen = () => {
@@ -41,7 +41,7 @@ const CommuteScreen = () => {
           setModalVisible(!modalVisible);
         }}
       >
-        <SuggestRoute setModalVisible={setModalVisible} />
+        <SuggestRoutes setModalVisible={setModalVisible} />
       </Modal>
 
       {/* Card UI */}

@@ -10,9 +10,6 @@ import {
   Pressable,
 } from "react-native";
 // import { SafeAreaView } from "react-native-safe-area-context";
-
-import Genre from "@/screens/Genre";
-
 import { React, useEffect, useState } from "react";
 import { Audio } from "expo-av";
 
@@ -150,8 +147,9 @@ const DiscoverScreen = ({ navigation }) => {
             <Image
               style={styles.genreBox}
               source={require("@/assets/Discover page/Hiphop.png")}
-            ></Image>
+            />
           </View>
+
           <View style={styles.box}>
             <Image
               style={styles.genreBox}
@@ -166,7 +164,7 @@ const DiscoverScreen = ({ navigation }) => {
               source={require("@/assets/Discover page/Mandopop.png")}
             ></Image>
           </View>
-          <View style={[styles.box, { marginBottom: 90 }]}>
+          <View style={[styles.box, { marginBottom: 180 }]}>
             <Image
               style={styles.genreBox}
               source={require("@/assets/Discover page/Rock.png")}

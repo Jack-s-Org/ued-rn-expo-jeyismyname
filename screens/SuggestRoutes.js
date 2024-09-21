@@ -9,8 +9,10 @@ import {
 } from "react-native";
 import React from "react";
 import LocationDetect from "@/Components/LocationDetect";
-import { Colors } from "react-native/Libraries/NewAppScreen";
-const SuggestRoute = (props) => {
+import { useNavigation } from "@react-navigation/native";
+
+const SuggestRoutes = (props) => {
+  const navigation = useNavigation();
   const [number, onChangeNumber] = React.useState("");
 
   return (
@@ -63,42 +65,48 @@ const SuggestRoute = (props) => {
           />
         </View>
         <Text style={styles.subtitle}>Suggested Routes</Text>
-        <ImageBackground
-          source={require("@/assets/Library page/suggest-container.png")}
-          style={[
-            {
-              width: 354,
-              height: 64,
-              alignSelf: "center",
-              marginTop: 12,
-            },
-          ]}
+        <Pressable
+          onPress={() => {
+            navigation.replace("Route", { screen: "SuggestRoutes" });
+          }}
         >
-          <View style={[styles.songFrame]}>
-            <View style={[styles.parentFlexBox]}>
-              <Image
-                style={[styles.artistImage]}
-                source={require("@/assets/Button img/train-green.png")}
-              />
-              <View style={styles.textFrame}>
-                <Text
-                  style={[styles.songTitle]}
-                  numberOfLines={1}
-                  ellipsizeMode="tail"
-                >
-                  30 mins | Arrival time: 12:30
-                </Text>
-                <Text
-                  style={[styles.artistName]}
-                  numberOfLines={1}
-                  ellipsizeMode="tail"
-                >
-                  Leaves in 5 min from Taman Paramount
-                </Text>
+          <ImageBackground
+            source={require("@/assets/Library page/suggest-container.png")}
+            style={[
+              {
+                width: 354,
+                height: 64,
+                alignSelf: "center",
+                marginTop: 12,
+              },
+            ]}
+          >
+            <View style={[styles.songFrame]}>
+              <View style={[styles.parentFlexBox]}>
+                <Image
+                  style={[styles.artistImage]}
+                  source={require("@/assets/Button img/train-green.png")}
+                />
+                <View style={styles.textFrame}>
+                  <Text
+                    style={[styles.songTitle]}
+                    numberOfLines={1}
+                    ellipsizeMode="tail"
+                  >
+                    30 mins | Arrival time: 12:30
+                  </Text>
+                  <Text
+                    style={[styles.artistName]}
+                    numberOfLines={1}
+                    ellipsizeMode="tail"
+                  >
+                    Leaves in 5 min from Taman Paramount
+                  </Text>
+                </View>
               </View>
             </View>
-          </View>
-        </ImageBackground>
+          </ImageBackground>
+        </Pressable>
         <ImageBackground
           source={require("@/assets/Library page/suggest-container.png")}
           style={[
@@ -281,4 +289,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SuggestRoute;
+export default SuggestRoutes;

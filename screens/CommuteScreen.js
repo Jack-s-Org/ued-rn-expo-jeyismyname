@@ -8,7 +8,7 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+// import { SafeAreaView } from "react-native-safe-area-context";
 
 import React from "react";
 import CommuteFav from "@/screens/CommuteFav";
@@ -53,7 +53,7 @@ const CommuteScreen = () => {
           songTitle="Eslite Spectrum Kuala Lumpur"
           artistName="Starhill Gallery, 181, Jln Bukit Binta"
         />
-        <View style={{ marginBottom: 90, backgroundColor: "yellow" }} />
+        <View style={{ marginBottom: 180, backgroundColor: "yellow" }} />
       </ImageBackground>
     </ScrollView>
   );
